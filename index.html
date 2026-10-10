@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exam Checklist: DBMS, MySQL & PHP</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3fa;--grid:#d5dfef;--card:#fff;--ink:#14213d;--mute:#51607e;--hl:#ffe45e;--red:#e63946;--ok:#1f8f52;--okbg:#dff5e8;--line:#14213d26;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--grid:#1a2540;--card:#18223a;--ink:#eaf0ff;--mute:#9db0d6;--red:#ff6b77;--ok:#4fd489;--okbg:#12382a;--line:#eaf0ff30}}
+:root[data-theme="dark"]{--bg:#0f1626;--grid:#1a2540;--card:#18223a;--ink:#eaf0ff;--mute:#9db0d6;--red:#ff6b77;--ok:#4fd489;--okbg:#12382a;--line:#eaf0ff30}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font:16px/1.45 "Bricolage Grotesque",system-ui,sans-serif;font-weight:500}
+main{max-width:720px;margin:0 auto;padding:16px 14px 60px}
+h1{font-weight:800;font-size:clamp(28px,7vw,42px);line-height:1.05;margin:6px 0 4px;letter-spacing:-.02em}
+h1 mark{background:var(--hl,#ffe45e);color:#14213d;padding:0 .15em;border-radius:4px}
+.pen{font-family:Caveat,cursive;font-weight:600;color:var(--red);font-size:1.3em;line-height:1.2;margin:0}
+.sub{color:var(--mute);margin:0 0 14px}
+.meter{background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:10px 14px;text-align:center;position:sticky;top:calc(env(safe-area-inset-top,0px) + 6px);z-index:5;box-shadow:4px 4px 0 var(--ink)}
+.meter svg{width:100%;max-width:230px;height:auto;display:block;margin:0 auto}
+#needle{transform-origin:100px 100px;transition:transform .9s cubic-bezier(.3,1.6,.5,1)}
+#verdict{font-weight:800;font-size:17px}
+.tabs{display:flex;gap:8px;margin:16px 0 10px;overflow-x:auto;padding-bottom:4px}
+.tab{flex:1 0 auto;font:inherit;font-weight:800;background:var(--card);color:var(--ink);border:2px solid var(--ink);border-radius:12px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.tab small{display:block;font-weight:500;opacity:.85}
+.ubox{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:12px 14px;margin-bottom:12px}
+.bar{height:14px;border-radius:8px;background:var(--line);overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .4s}
+#umsg{font-weight:800;margin:0}
+.grp{font-weight:800;font-size:18px;margin:18px 0 4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.crit{background:var(--red);color:#fff;font-size:13px;border-radius:6px;padding:1px 8px}
+.item{display:flex;gap:12px;align-items:center;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.item:has(input:checked){background:var(--okbg);border-color:var(--ok)}
+.item:has(input:checked) span{text-decoration:line-through;text-decoration-thickness:2px;opacity:.75}
+.item:has(input:focus-visible){outline:3px solid var(--red)}
+.item input{width:22px;height:22px;accent-color:var(--ok);flex:none;margin:0}
+.critbox{border:2px solid var(--red);border-radius:12px;padding:2px 10px 6px;margin-top:6px}
+button.reset{display:block;margin:24px auto 0;font:inherit;font-weight:800;background:none;color:var(--ink);border:2px dashed var(--ink);border-radius:10px;padding:8px 16px;cursor:pointer}
+button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){#needle,.bar i{transition:none}}
+</style></head>
+<body><main>
+<p class="pen">tick honestly. the exam hall will not.</p>
+<h1>Am I Ready? <mark>The Checklist</mark></h1>
+<p class="sub">DBMS · MySQL · PHP. Tick a topic only if you could explain it without peeking.</p>
+
+<div class="meter" aria-live="polite">
+<svg viewBox="0 0 200 118" role="img" aria-label="Readiness meter">
+<path d="M10 100A90 90 0 0 1 70 15" fill="none" stroke="#e63946" stroke-width="16"/>
+<path d="M70 15A90 90 0 0 1 130 15" fill="none" stroke="#ffd23f" stroke-width="16"/>
+<path d="M130 15A90 90 0 0 1 190 100" fill="none" stroke="#1f8f52" stroke-width="16"/>
+<g id="needle"><line x1="100" y1="100" x2="100" y2="28" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="100" r="8" fill="currentColor"/></g>
+<text x="8" y="116" font-size="10" fill="currentColor">GONE</text><text x="156" y="116" font-size="10" fill="currentColor">READY</text>
+</svg>
+<div id="verdict"></div>
+</div>
+
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="ubox"><p id="umsg"></p><div class="bar"><i id="fill"></i></div><span id="cnt" class="sub"></span></div>
+<div id="view"></div>
+<button class="reset" id="reset">Untick everything (start fresh)</button>
+</main>
+<script>
+const U=[
+{n:"Unit 1",t:"DBMS",g:[
+["Database",["Characteristics","Advantages","Disadvantages","Types of users"]],
+["Basic terminology",["Field","Tuple","Record","Schema","Subschema","Entity","Attribute"]],
+["Key concepts",["Primary key","Candidate key","Foreign key","Super key","Composite key"]],
+["ER diagrams",["Library","Banking","Payroll"]]]},
+{n:"Unit 2",t:"MySQL",g:[
+["Datatypes",["Datatypes"]],
+["Functions",["String functions","Numeric functions","Date functions","Aggregate functions"]],
+["Queries",["CREATE","ALTER","DROP","TRUNCATE","INSERT","UPDATE","DELETE","SELECT","WHERE","ORDER BY","GROUP BY and HAVING","Joins"]],
+["Theory",["Tables","Views","Triggers"]]]},
+{n:"Unit 3 & 4",t:"PHP",g:[
+["Basics",["PHP basics"]],
+["MUST DO: Loops","crit",["for","while","do-while","foreach"]],
+["Programs",["PHP programs (as given in the previous webpage)"]],
+["PHP functions",["String functions","Math functions","Date functions","User-defined functions"]],
+["Superglobals",["$_GET","$_POST","$_SESSION"]],
+["Files",["File modes"]]]}
+];
+const tiers=[[0,"Gone! Not a single tick. The exam hall is waiting for you."],[10,"Gone-ish. You know where the exam is, at least."],[30,"Wobbly. Your pen will have a long, lonely evening."],[50,"Half-baked. Better than raw, still not edible."],[70,"Getting there! Tick the rest before your tea gets cold."],[90,"Almost! One more look at the unticked ones."],[100,"Fully ready! Go and make the examiner cry."]];
+const ukey="panic-checklist-v1";let st={},cur=0;
+try{st=JSON.parse(localStorage.getItem(ukey)||"{}")}catch(e){}
+const $=s=>document.querySelector(s);
+const items=u=>U[u].g.flatMap((g,gi)=>{const crit=g[1]==="crit",l=crit?g[2]:g[1];return l.map((t,i)=>({id:`${u}.${gi}.${i}`,t,crit}))});
+const done=u=>items(u).filter(x=>st[x.id]).length;
+const tier=p=>tiers.reduce((a,t)=>p>=t[0]?t:a,tiers[0])[1];
+function overall(){let d=0,n=0;U.forEach((_,u)=>{d+=done(u);n+=items(u).length});return[d,n]}
+function paint(){
+const[d,n]=overall(),p=Math.round(100*d/n);
+$("#needle").style.transform=`rotate(${p*1.8-90}deg)`;
+$("#verdict").textContent=`${p}% ready · ${tier(p)}`;
+const it=items(cur),dd=done(cur),pp=Math.round(100*dd/it.length);
+let msg=tier(pp).replace(/^/,`${U[cur].n}: `);
+if(cur==2){const lp=items(2).filter(x=>x.crit);if(lp.some(x=>!st[x.id]))msg="Loops not fully ticked? 4 marks gone! Go tick them honestly."}
+$("#umsg").textContent=msg;$("#fill").style.width=pp+"%";$("#cnt").textContent=`${dd} of ${it.length} ticked`;
+document.querySelectorAll(".tab").forEach((b,i)=>b.querySelector("small").textContent=`${U[i].t} · ${Math.round(100*done(i)/items(i).length)}%`);
+}
+function tabs(){$("#tabs").innerHTML=U.map((u,i)=>`<button class="tab" role="tab" aria-selected="${i==cur}" data-i="${i}">${u.n}<small></small></button>`).join("")}
+function render(){
+$("#view").innerHTML=U[cur].g.map((g,gi)=>{const crit=g[1]==="crit",l=crit?g[2]:g[1];
+const rows=l.map((t,i)=>{const id=`${cur}.${gi}.${i}`;return `<label class="item"><input type="checkbox" data-id="${id}" ${st[id]?"checked":""}><span>${t}</span></label>`}).join("");
+return `<div class="grp">${g[0]}${crit?'<span class="crit">4 marks</span>':""}</div>${crit?`<div class="critbox">${rows}</div>`:rows}`}).join("");
+tabs();paint();}
+document.addEventListener("click",e=>{const t=e.target.closest(".tab");if(t){cur=+t.dataset.i;render();}});
+document.addEventListener("change",e=>{const c=e.target;if(!c.dataset.id)return;
+st[c.dataset.id]=c.checked;if(!c.checked)delete st[c.dataset.id];
+try{localStorage.setItem(ukey,JSON.stringify(st))}catch(x){}
+paint();});
+$("#reset").onclick=()=>{st={};try{localStorage.removeItem(ukey)}catch(x){}render();scrollTo(0,0)};
+render();
+</script></body></html>
